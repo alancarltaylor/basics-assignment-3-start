@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styles: [`
-  	blueMode: {
-  		color: white;
-  		backgroundColor: blue;
-  	}
-  `]
+		.blueMode {
+			background-color: blue;
+			color: white;
+		}
+	`]
 })
 export class AppComponent {
 	content = 'Calvin and Hobbes is the best comic strip of ALL TIME';
@@ -16,14 +16,18 @@ export class AppComponent {
 	logs = [];
 	moreThanFive = false;
 	n = 0;
+	serverStatus = 'online';
 
 	constructor(){
 
 	}
 
 	 toggleDisplay(){
+	 	this.n++;
 	 	this.display = !this.display;
-	 	this.logs.push(this.n++)
+	 	this.logs.push(new Date())
 	 	console.log("logs: ", this.logs);
+	 	console.log("morethanfive: ", this.moreThanFive);
+	 	this.n > 5 ? this.moreThanFive = true : this.moreThanFive = false;
 	 }
 }
