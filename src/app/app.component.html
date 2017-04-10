@@ -16,8 +16,8 @@
 
       <p *ngIf="display">{{ content }}</p>
       
-      <p *ngFor="let log of logs"
-      [ngClass]="{blueMode: moreThanFive == true }">{{ log }}</p>
+      <p *ngFor="let log of logs; let i = index"
+      [ngClass]="{blueMode: i > 4}">{{ log }}</p>
     </div>
   </div>
 </div>
